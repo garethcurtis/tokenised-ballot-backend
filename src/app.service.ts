@@ -101,8 +101,8 @@ export class AppService {
       abi: tokenJson.abi,
       bytecode: tokenJson.bytecode as `0x${string}`,
     });
-    const receipt = await this.publicClient.waitForTransactionReceipt({ hash });
-    return { result: receipt.result};
+    const receipt = await this.publicClient.waitForTransactionReceipt({ hash }); 
+    return { result: receipt.result, hash: hash };
   }
 
   async vote(address: any, proposalIndex: number, votingAmount: number) {
